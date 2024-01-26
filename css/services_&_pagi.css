@@ -1,0 +1,73 @@
+.services {
+    width: 100%;
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.services>p {
+    font-size: 18px;
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.services>h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 80px;
+}
+
+
+.services>.block {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 80%;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.services>.block>.card {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding-bottom: 60px;
+    max-width: 400px;
+    width: 25%;
+    border-radius: 4px;
+}
+
+.services>.block>.card>#desc {
+    opacity: 0.6;
+    line-height: 30px;
+}
+
+
+.services>.block>.card>.prof {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 80px;
+}
+
+.dots >.dot {
+    height: 12px;
+    width: 12px;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    background-color: gainsboro;
+}
+
+.dots > #selected{
+    background-color: lightgreen;
+}C:\Coding\RIT\senior\example.html

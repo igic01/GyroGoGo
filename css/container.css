@@ -1,0 +1,65 @@
+.container {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.container>.item {
+    display: flex;
+    justify-content: center;
+    gap: 44px;
+}
+
+.container>.square {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 140%;
+    background-color: lightgreen;
+    z-index: -1;
+    left: 35%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.container>.item>.img {
+    background-color: pink;
+    height: 55vh;
+}
+
+.container>.item>.img>img {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.container>.item>.content {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    line-height: 30px;
+}
+
+.container>.item>.content> :first-child {
+    font-size: 16px;
+    opacity: 0.6;
+    margin-bottom: -8px;
+}
+
+.container>.item>.content>h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.container>.item>.content>button {
+    border: none;
+    height: 60px;
+    width: fit-content;
+    padding: 6px 28px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+}

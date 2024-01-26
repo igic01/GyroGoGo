@@ -1,0 +1,46 @@
+.small_container {
+    width: 100%;
+    display: flex;
+    position: relative;
+    background-image: url(../images/tree2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    height: 300px;
+    overflow: hidden;
+    /* to be deleted */
+    gap: 260px;
+}
+
+.small_container>.square {
+    width: 37%;
+    height: 300%;
+    margin-top: -130px;
+    position: relative;
+    left: -100px;
+    background-color: lightgreen;
+    transform: rotate(21deg);
+}
+
+.small_container>.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.small_container>.content>h2 {
+    color: white;
+    font-size: 40px;
+}
+
+.small_container>.content>button {
+    border: none;
+    height: 60px;
+    width: fit-content;
+    padding: 6px 28px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: blue;
+    color: white;
+}
