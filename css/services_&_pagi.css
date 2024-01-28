@@ -23,22 +23,20 @@
     display: flex;
     gap: 20px;
     justify-content: center;
-    width: 80%;
-    gap: 30px;
     margin: 0 auto;
 }
 
 .services>.block>.card {
     background-color: white;
-    padding: 20px;
+    padding: 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 24px;
     padding-bottom: 60px;
     max-width: 400px;
-    width: 25%;
     border-radius: 4px;
+    width: 320px;
 }
 
 .services>.block>.card>#desc {
@@ -70,4 +68,21 @@
 
 .dots > #selected{
     background-color: lightgreen;
-}C:\Coding\RIT\senior\example.html
+}
+
+.pagi > .block {
+    width: 55vw;
+    height: 510px;
+    display: flex;
+    justify-content: start;
+    flex-wrap: nowrap;
+    gap: 5%;
+    overflow: hidden;
+    
+}
+
+
+.pagi > .block > .card {
+    flex: 0 0 auto;
+    width: 30%;  
+}
