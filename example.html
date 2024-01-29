@@ -1,35 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Overflow to the Right</title>
-<style>
-    .container {
-        background-color: blue;
-        width: 300px;
-        white-space: nowrap;
-        padding: 20px;
-        overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Element Shift</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
 
-    .element {
-        display: inline-block;
-        width: 100px;
-        background-color: #f0f0f0;
-        margin-right: 10px;
-    }
-</style>
+        #container {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            overflow: hidden;
+            width: 520px;
+            /* Adjust as needed */
+        }
+
+        .element {
+            display: inline-block;
+            width: 100px;
+            /* Adjust as needed */
+            height: 100px;
+            /* Adjust as needed */
+            background-color: #4CAF50;
+            color: white;
+            margin-right: 10px;
+            line-height: 100px;
+            text-align: center;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-right: 10px;
+            /* Adds spacing between boxes */
+            /* Add transition effect */
+        }
+
+        .box.removing {
+            opacity: 0;
+            /* Make the box transparent during removal */
+        }
+    </style>
 </head>
+
 <body>
+    <div id="container" style="display: flex;">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+    </div>
 
-<div class="container">
-    <div class="element" id="test">1</div>
-    <div class="element">2</div>
-    <div class="element">3</div>
-    <div class="element">4</div>
-    <div class="element">5</div>
-</div>
+    <button onclick="removeFirstElement()">Remove First Element</button>
 
+
+    <script>
+        function removeFirstElement() {
+            var container = document.getElementById('container');
+            var firstElement = container.firstElementChild;
+            firstElement.style.opacity = 0;
+
+            if (firstElement) {
+                var width = 100; // Initial width
+                var interval = setInterval(function () {
+                    width -= 1; // Reduce width by 1px
+                    firstElement.style.width = width + 'px'; // Apply new width
+
+                    if (width <= 0) {
+                        clearInterval(interval); // Stop the interval
+                        container.removeChild(firstElement); // Remove the element
+                    }
+                }, 10); // Interval duration (adjust for smoother/faster animation)
+            } else {
+                console.log("Container is already empty.");
+            }
+        }
+
+
+
+    </script>
 </body>
+
 </html>

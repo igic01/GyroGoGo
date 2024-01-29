@@ -19,14 +19,13 @@
 }
 
 
-.services>.block {
+.services>.interface >.block {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin: 0 auto;
 }
 
-.services>.block>.card {
+.services>.interface >.block>.card {
     background-color: white;
     padding: 25px;
     display: flex;
@@ -39,50 +38,46 @@
     width: 320px;
 }
 
-.services>.block>.card>#desc {
+.services>.interface >.block>.card>#desc {
     opacity: 0.6;
     line-height: 30px;
 }
 
 
-.services>.block>.card>.prof {
+.services>.interface >.block>.card>.prof {
     height: 140px;
     width: 140px;
     border-radius: 50%;
 }
 
-.dots {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 80px;
-}
-
-.dots >.dot {
-    height: 12px;
-    width: 12px;
-    border: 1px solid lightgray;
-    border-radius: 50%;
-    background-color: gainsboro;
-}
-
-.dots > #selected{
-    background-color: lightgreen;
-}
-
-.pagi > .block {
+.pagi >.interface > .block {
     width: 55vw;
     height: 510px;
     display: flex;
     justify-content: start;
     flex-wrap: nowrap;
     gap: 5%;
-    overflow: hidden;
-    
+    overflow: hidden;  
 }
 
-
-.pagi > .block > .card {
+.pagi > .interface >.block > .card {
     flex: 0 0 auto;
     width: 30%;  
+}
+
+.pagi >.interface{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.pagi >.interface > .arrow{
+    transform: scale(4,3);
+}
+
+/* Test */
+
+.pagi > .interface > .block > .card { 
+    transition: transform 0.5s ease;
 }

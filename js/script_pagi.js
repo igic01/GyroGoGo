@@ -1,48 +1,45 @@
-const pagi = document.querySelectorAll(".pagi");
+const pagis = document.querySelectorAll(".pagi");
 
-function make_dots() {
-    pagi.forEach(item => {
-        const cards_count = item.querySelectorAll(".card").length;
+pagis.forEach( pagi =>{
+    const block = pagi.querySelector(".block");
+    const cards = block.querySelectorAll(".card");
+    const dash = block.clientWidth / 2.85;
+    const arrow = pagi.querySelectorAll(".arrow");
+    const arrow_left = arrow[0];
+    const arrow_right = arrow[1];
 
-        if (cards_count <= 3) {
-            return;
-        }
 
-        const dots_div = item.querySelector(".dots");
-        const dots = [];
+    arrow_left.addEventListener("click", ()=>{
+        console.log("left");
+        cards.forEach( card => {
+            const current_position = parseFloat(window.getComputedStyle(card).getPropertyValue('transform').split(',')[4]) || 0;
+            const new_position = current_position + dash;
 
-        const first_dot = document.createElement("div");
-        first_dot.classList.add("dot");
-        dots.push(first_dot);
-        first_dot.setAttribute('id', 'selected');
-        first_dot.setAttribute('order', '0');
-        first_dot.addEventListener("click", (e) => {
-            console.log(first_dot.getAttribute("order"));
-            selection(dots, first_dot);
+            card.style.transform = "translateX(" + new_position + "px)";
         });
-        dots_div.appendChild(first_dot);
-        for (let i = 1; i < cards_count; i++) {
-            const dot = document.createElement("div");
-            dots.push(dot)
-            dot.classList.add("dot");
-            dot.setAttribute('order', i);
-            dots_div.appendChild(dot);
-            dot.addEventListener("click", (e) => {
-                selection(dots, dot);
+
+    });
+
+    arrow_right.addEventListener("click", ()=>{
+        console.log("right");
+        cards.forEach( card => {
+            const current_position = parseFloat(window.getComputedStyle(card).getPropertyValue('transform').split(',')[4]) || 0;
+            const new_position = current_position - dash;
+
+            card.style.transform = "translateX(" + new_position + "px)";
+        });
+
+        setTimeout(() => {
+            console.log("test");
+            
+            cards.forEach( card => {
+                card.style.transition = 'none';
+                card.style.transform = "translateX(0px)";
             });
-        }
+            cards[0].parentNode.removeChild(cards[0]);
+        }, 500) 
     });
-}
-
-function selection(dots, selected){
-    dots.forEach(dot => {
-        dot.removeAttribute("id");
-    });
-    selected.setAttribute('id', 'selected');
-}
-
-make_dots(pagi);
-
+});
 
 
 
