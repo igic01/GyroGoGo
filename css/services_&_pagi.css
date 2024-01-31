@@ -18,14 +18,17 @@
     margin-bottom: 80px;
 }
 
-
-.services>.interface >.block {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+.services>.interface>.block {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / 4);
+    gap: 16px;
+    place-items: center;
+    width: 84vw;
+    margin: 0 auto;
 }
 
-.services>.interface >.block>.card {
+.services>.interface>.block>.card {
     background-color: white;
     padding: 25px;
     display: flex;
@@ -33,51 +36,59 @@
     align-items: center;
     gap: 24px;
     padding-bottom: 60px;
-    max-width: 400px;
     border-radius: 4px;
-    width: 320px;
+    scroll-snap-align: start;
 }
 
-.services>.interface >.block>.card>#desc {
+.services>.interface>.block>.card>#desc {
     opacity: 0.6;
     line-height: 30px;
 }
 
-
-.services>.interface >.block>.card>.prof {
+.services>.interface>.block>.card>.prof {
     height: 140px;
     width: 140px;
     border-radius: 50%;
 }
 
-.pagi >.interface > .block {
-    width: 55vw;
-    height: 510px;
-    display: flex;
-    justify-content: start;
-    flex-wrap: nowrap;
-    gap: 5%;
-    overflow: hidden;  
-}
-
-.pagi > .interface >.block > .card {
-    flex: 0 0 auto;
-    width: 30%;  
-}
-
-.pagi >.interface{
+.pagi>.interface {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 100px;
+    width: 78vw;
+    margin: auto;
+    gap: 80px;
 }
 
-.pagi >.interface > .arrow{
-    transform: scale(4,3);
+.pagi>.interface>.block {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 8px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    border-radius: 8px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    background-color: blue;
 }
 
-/* Test */
+.pagi>.interface>.block::-webkit-scrollbar {
+    display: none;
+}
 
-.pagi > .interface > .block > .card { 
-    transition: transform 0.5s ease;
+.pagi>.interface>i {
+    transform: scale(3, 2);
+}
+
+@media screen and (max-width: 1500px) {
+    .pagi>.interface>.block {
+        grid-auto-columns: calc((100% / 2) - 9px);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .pagi>.interface>.block {
+        grid-auto-columns: 100%;
+    }
 }

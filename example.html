@@ -1,102 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- Website - www.codingnepalweb.com -->
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>Infinite Card Slider JavaScript | CodingNepal</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smooth Element Shift</title>
+    <!-- Fontawesome Link for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <style>
+        /* Import Google font - Poppins */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
+            display: flex;
+            padding: 0 35px;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(to left top, #031A9A, #8B53FF);
         }
 
-        #container {
-            display: inline-block;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            overflow: hidden;
-            width: 520px;
-            /* Adjust as needed */
+        .wrapper {
+            max-width: 1100px;
+            width: 100%;
+            position: relative;
         }
 
-        .element {
-            display: inline-block;
-            width: 100px;
-            /* Adjust as needed */
-            height: 100px;
-            /* Adjust as needed */
-            background-color: #4CAF50;
-            color: white;
-            margin-right: 10px;
-            line-height: 100px;
-            text-align: center;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        button {
-            margin-top: 10px;
-            padding: 8px 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
+        .wrapper i {
+            top: 50%;
+            height: 50px;
+            width: 50px;
             cursor: pointer;
+            font-size: 1.25rem;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+            transform: translateY(-50%);
+            transition: transform 0.1s linear;
         }
 
-        .box {
-            width: 100px;
-            height: 100px;
-            background-color: red;
-            margin-right: 10px;
-            /* Adds spacing between boxes */
-            /* Add transition effect */
+        .wrapper i:first-child {
+            left: -22px;
         }
 
-        .box.removing {
-            opacity: 0;
-            /* Make the box transparent during removal */
+        .wrapper i:last-child {
+            right: -22px;
         }
+
+        .wrapper .carousel {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: calc((100% / 3) - 12px);
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            border-radius: 8px;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+
+
+        .carousel .card {
+            scroll-snap-align: start;
+            height: 342px;
+            list-style: none;
+            background: #fff;
+            cursor: pointer;
+            padding-bottom: 15px;
+            flex-direction: column;
+            border-radius: 8px;
+        }
+        
+
+        
     </style>
 </head>
 
 <body>
-    <div id="container" style="display: flex;">
-        <div class="box">Box 1</div>
-        <div class="box">Box 2</div>
-        <div class="box">Box 3</div>
-        <div class="box">Box 4</div>
-        <div class="box">Box 5</div>
+    <div class="wrapper">
+        <i id="left" class="fa-solid fa-angle-left"></i>
+        <ul class="carousel">
+            <li class="card">
+                <div class="img"><img src="images/img-1.jpg" alt="img" draggable="false"></div>
+                <h2>Blanche Pearson</h2>
+                <span>Sales Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/img-2.jpg" alt="img" draggable="false"></div>
+                <h2>Joenas Brauers</h2>
+                <span>Web Developer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/img-3.jpg" alt="img" draggable="false"></div>
+                <h2>Lariach French</h2>
+                <span>Online Teacher</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/img-4.jpg" alt="img" draggable="false"></div>
+                <h2>James Khosravi</h2>
+                <span>Freelancer</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/img-5.jpg" alt="img" draggable="false"></div>
+                <h2>Kristina Zasiadko</h2>
+                <span>Bank Manager</span>
+            </li>
+            <li class="card">
+                <div class="img"><img src="images/img-6.jpg" alt="img" draggable="false"></div>
+                <h2>Donald Horton</h2>
+                <span>App Designer</span>
+            </li>
+        </ul>
+        <i id="right" class="fa-solid fa-angle-right"></i>
     </div>
-
-    <button onclick="removeFirstElement()">Remove First Element</button>
 
 
     <script>
-        function removeFirstElement() {
-            var container = document.getElementById('container');
-            var firstElement = container.firstElementChild;
-            firstElement.style.opacity = 0;
-
-            if (firstElement) {
-                var width = 100; // Initial width
-                var interval = setInterval(function () {
-                    width -= 1; // Reduce width by 1px
-                    firstElement.style.width = width + 'px'; // Apply new width
-
-                    if (width <= 0) {
-                        clearInterval(interval); // Stop the interval
-                        container.removeChild(firstElement); // Remove the element
-                    }
-                }, 10); // Interval duration (adjust for smoother/faster animation)
-            } else {
-                console.log("Container is already empty.");
-            }
-        }
-
-
+       const carousel = document.querySelector(".carousel");
+        const firstCardWidth = carousel.querySelector(".card").offsetWidth;
+        const arrowBtns = document.querySelectorAll(".wrapper i");
+       
+        // Add event listeners for the arrow buttons to scroll the carousel left and right
+        arrowBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                carousel.scrollLeft += btn.id == "left" ? -firstCardWidth : firstCardWidth;
+            });
+        });
 
     </script>
 </body>
