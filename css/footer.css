@@ -1,0 +1,51 @@
+footer {
+    display: flex;
+    width: 100%;
+    padding: 100px 200px 200px 200px;
+    background-color: black;
+    color: whitesmoke;
+    gap: 60px;
+}
+footer > * > .title{
+    font-size: 24px;
+    margin-bottom: 40px;
+    color: whitesmoke;
+}
+
+footer p,li {
+    opacity: 0.6;
+}
+
+footer > .col1 {
+    line-height: 28px;
+    flex-basis: 25%;
+}
+
+footer > .col1 > .social{
+    margin: 0 auto;
+    padding-left: 20px;
+}
+
+footer > .col1 > .social > * {
+    transform: scale(2);
+    margin-right: 40px;
+    margin-top: 80px;
+}
+
+footer > * > ul {
+    list-style: none;
+    line-height: 44px;
+}
+
+footer > .col4 > ul > li {
+    color: white;
+    
+    opacity: 1 !important;
+}
+footer > .col4 > ul > li > i{
+    margin-right: 20px;
+}
+
+footer > .col4 > ul > li > span {
+    opacity: 0.6;
+}

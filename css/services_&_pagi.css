@@ -70,7 +70,6 @@
     border-radius: 8px;
     scroll-behavior: smooth;
     scrollbar-width: none;
-    background-color: blue;
 }
 
 .pagi>.interface>.block::-webkit-scrollbar {
