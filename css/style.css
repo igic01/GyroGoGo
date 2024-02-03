@@ -3,3 +3,27 @@
 @import "small_container.css";
 @import "services_&_pagi.css";
 @import "footer.css";
+
+.animate {
+    opacity: 1;
+    
+}
+
+.animated {
+    opacity: 1;
+    /* transition: fadeIn 0.5s ease-in-out forwards; */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Initial position */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* Final position */
+    }
+}

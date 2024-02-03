@@ -5,6 +5,7 @@ footer {
     background-color: black;
     color: whitesmoke;
     gap: 60px;
+    display: none;
 }
 footer > * > .title{
     font-size: 24px;

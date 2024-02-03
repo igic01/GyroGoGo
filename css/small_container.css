@@ -10,6 +10,8 @@
     overflow: hidden;
     /* to be deleted */
     gap: 260px;
+
+    display: none;
 }
 
 .small_container>.square {
