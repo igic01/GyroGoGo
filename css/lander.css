@@ -10,6 +10,8 @@
 /* Nav - Start */
 
 nav {
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 70px;
     margin-top: 18px;
@@ -151,7 +153,6 @@ nav>.more {
 .main_container {
     position: absolute;
     top: 0px;
-    z-index: -1;
     width: 100%;
     height: 99vh;
     display: flex;
