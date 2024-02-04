@@ -1,0 +1,76 @@
+@import "colors.css";
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    margin: 100px auto;
+    position: relative;
+    gap: 50px;
+    color: var(--text_d);
+    text-align: justify;
+}
+
+.container > .content {
+    background-color: var(--secondary);
+}
+
+.container > .img > img{
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.container> .content > p {
+    font-size: 16px;
+    line-height: 34px;
+}
+.container> .content> :first-child {
+    font-size: 16px;
+    opacity: 0.6;
+    margin-bottom: 12px;
+}
+
+.container>.content>h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.container>.content>button {
+    border: none;
+    height: 60px;
+    width: fit-content;
+    padding: 6px 28px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: var(--accent);
+    color: white;
+    margin-top: 20px;
+}
+
+.container::after {
+    content: "";
+    position: absolute;
+    background-color: var(--secondary);
+    height: 94vh;
+    width: 60vw;
+    z-index: -1;
+    left: 40%;
+
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        background-color: var(--secondary);
+        width: 100%;
+        padding: 60px 40px;
+    }
+
+    .container::after {
+        display: none;
+    }
+}

@@ -18,7 +18,7 @@ more.addEventListener("click", () => {
 
 function handleScroll() {
     var scroll_position = window.scrollY || window.pageYOffset;
-    var trigger_point = window.innerHeight * 0.3;
+    var trigger_point = window.innerHeight * 0.6;
 
     if (scroll_position > trigger_point) {
         nav.classList.add('sticky');
