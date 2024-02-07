@@ -1,27 +1,18 @@
+@import "colors.css";
+
 .small_container {
-    width: 100%;
-    display: flex;
     position: relative;
-    background-image: url(../images/tree2.jpg);
-    background-repeat: no-repeat;
+    width: 100vw;
+    height: 30vh;
+    min-height: 200px;
+    background-image: url(../images/traffic.jpg);
     background-size: cover;
-    background-position: bottom center;
-    height: 300px;
+    background-position: bottom;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 400px;
     overflow: hidden;
-    /* to be deleted */
-    gap: 260px;
-
-    display: none;
-}
-
-.small_container>.square {
-    width: 37%;
-    height: 300%;
-    margin-top: -130px;
-    position: relative;
-    left: -100px;
-    background-color: lightgreen;
-    transform: rotate(21deg);
 }
 
 .small_container>.content {
@@ -32,7 +23,7 @@
 }
 
 .small_container>.content>h2 {
-    color: white;
+    color: var(--text_d);
     font-size: 40px;
 }
 
@@ -43,6 +34,34 @@
     padding: 6px 28px;
     font-size: 16px;
     border-radius: 4px;
-    background-color: blue;
-    color: white;
+    background-color: var(--accent);
+    color: var(--text_d);
+}
+
+.small_container::after {
+    content: "";
+    position: absolute;
+    height: 500px;
+    width: 1000px;
+    transform: rotate(18deg);
+    z-index: 2;
+    top: -200;
+    left: -500px;
+    background-color: var(--secondary);
+}
+
+
+@media screen and (max-width: 1500px) {
+
+    .small_container {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .small_container>.content {
+        align-items: center;
+    }
+    .small_container::after {
+        display: none;
+    }
 }

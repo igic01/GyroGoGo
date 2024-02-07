@@ -1,14 +1,12 @@
-@import "lander2.css";
-@import "container2.css";
+@import "lander.css";
+@import "container.css";
 @import "small_container.css";
 @import "services_&_pagi.css";
 @import "footer.css";
 
-
-
 .animate {
     opacity: 0;
-    
+
 }
 
 .animated {
