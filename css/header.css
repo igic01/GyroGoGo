@@ -1,0 +1,28 @@
+@import "colors.css";
+
+header {
+    background-image: url(../images/road_2.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 72vh;
+    display: flex;
+    justify-content: end;
+    color: var(--text_d);
+    flex-direction: column;
+    padding: 48px 14%;
+}
+header > .path > p {
+    font-size: 13px;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
+    opacity: 0.8;
+    text-transform: uppercase;
+}
+
+header > .path > h1 {
+    font-size: 60px;
+    font-weight: lighter;
+}

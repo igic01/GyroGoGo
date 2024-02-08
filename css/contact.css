@@ -1,0 +1,84 @@
+@import "colors.css";
+
+.contact{
+    display: flex;
+    width: 70%;
+    margin: 100px auto;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.contact > .info > .item{
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--secondary);
+    text-wrap: nowrap;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    opacity: 0.6;
+}
+
+.contact >.info >.item > .icon {
+    transform: scale(1.4);
+    color: var(--secondary);
+}
+
+#contact_us_form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    padding: 30px;
+    background-color: var(--background);
+}
+
+#contact_us_form > input {
+    padding: 12px 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--secondary);
+    color: var(--accent);
+}
+
+#contact_us_form > textarea {
+    padding: 12px 10px;
+    font-size: 18px;
+    border-radius: 4px;
+    border: 1px solid var(--secondary);
+    resize: none;
+    color: var(--accent);
+}
+
+#contact_us_form > input:focus {
+    outline: 1px solid var(--accent);
+    color: var(--accent);
+}
+
+#contact_us_form > textarea:focus {
+    outline: 1px solid var(--accent);
+    
+}
+
+#contact_us_form > button {
+    border: none;
+    height: 60px;
+    width: fit-content;
+    padding: 6px 28px;
+    font-size: 16px;
+    border-radius: 4px;
+    background-color: var(--accent);
+    color: white;
+}
+
+@media screen and (max-width: 800px) {
+    .contact{
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #contact_us_form > button{
+        width: 100%;
+    }
+}

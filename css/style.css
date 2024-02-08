@@ -1,8 +1,11 @@
 @import "lander.css";
+@import "header.css";
 @import "container.css";
 @import "small_container.css";
 @import "services_&_pagi.css";
+@import "contact.css";
 @import "footer.css";
+
 
 .animate {
     opacity: 0;
@@ -23,6 +26,14 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
