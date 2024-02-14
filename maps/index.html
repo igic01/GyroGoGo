@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Tracking System with Google Maps</title>
+<style>
+    #map {
+        height: 400px;
+        width: 600px;
+    }
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApZ2O8NTXCF6s3kw8DB7tU9YJImmv-WnQ&callback=initMap" async defer></script>
+<script>
+    let map;
+    let pathPolyline;
+
+    function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: 42.6507, lng: 18.0944 }, // Dubrovnik, Croatia
+            zoom: 15,
+        });
+        initializePath();
+        displayDrivingPath();
+    }
+
+    function initializePath() {
+        pathPolyline = new google.maps.Polyline({
+            path: [],
+            geodesic: true,
+            strokeColor: '#0000FF',
+            strokeOpacity: 1.0,
+            strokeWeight: 2,
+            editable: false,
+            map: map
+        });
+    }
+
+    function displayDrivingPath() {
+        const directionsService = new google.maps.DirectionsService();
+        const start = { lat: 42.6507, lng: 18.0944 }; // Starting point in Dubrovnik, Croatia
+        const carPosition = { lat: 42.6397, lng: 18.1101 }; // Car's position (for demonstration purposes)
+        const request = {
+            origin: start,
+            destination: carPosition,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+
+        directionsService.route(request, function(response, status) {
+            if (status === 'OK') {
+                const route = response.routes[0].overview_path;
+                pathPolyline.setPath(route);
+            } else {
+                alert('Error calculating the route. Please try again.');
+            }
+        });
+    }
+</script>
+</body>
+</html>
